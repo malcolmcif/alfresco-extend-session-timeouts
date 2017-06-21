@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- The ticket component, Used for reauthentication                   -->
+    <bean id="ticketComponent" class="org.alfresco.repo.security.authentication.InMemoryTicketComponentImpl">
+        <property name="ticketsCache">
+            <ref bean="ticketsCache"/>
+        </property>
+        <!-- The period for which tickets are valid in XML duration format, default P1H is 1 Hour -->
+        <!-- This time must be greater than the timke specified in the web.xml files -->
+        <property name="validDuration">
+            <value>PT17H</value>
+        </property>
+        <!-- Do tickets expire or live for ever? -->
+        <property name="ticketsExpire">
+            <value>true</value>
+        </property>
+        <!-- Are tickets only valid for a single use? -->
+        <property name="oneOff">
+            <value>false</value>
+        </property>
+        <!-- If ticketsEpire is true then how they should expire -->
+        <!-- AFTER_INACTIVITY, AFTER_FIXED_TIME, DO_NOT_EXPIRE  -->
+        <!-- The default is AFTER_FIXED_TIME -->
+        <property name="expiryMode">
+            <value>AFTER_INACTIVITY</value>
+        </property>
+    </bean>
+</beans>
