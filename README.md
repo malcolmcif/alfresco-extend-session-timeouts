@@ -1,5 +1,5 @@
 # Description 
-This modification extends the default session timeout for web clients from 1 hour to 16 hours.
+This modification extends the default session timeout for Alfresco web clients from 1 hour to 16 hours.
 
 The following files are deployed to you installation:
 1. ./Alfresco/src/main/amp/web/WEB-INF/web.xml (via alfresco amp)
